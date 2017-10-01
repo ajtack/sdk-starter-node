@@ -17,8 +17,9 @@ $(function () {
   //synchronizing state -- so we'll use a random UUID to identify
   //this tab.
   $.getJSON('/token', function (tokenResponse) {
+    console.log(tokenResponse.token);
     //Initialize the Sync client
-    syncClient = new Twilio.Sync.Client(tokenResponse.token, { logLevel: 'info' });
+    syncClient = new Twilio.Sync.Client(tokenResponse.token, { logLevel: 'debug' });
 
     //Let's pop a message on the screen to show that Sync is ready
     $message.html('Sync initialized!');
